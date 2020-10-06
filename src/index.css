@@ -18,3 +18,7 @@ code {
 h1, h2 {
   font-weight: 200 !important;
 }
+
+.hide {
+  display: none !important;
+}

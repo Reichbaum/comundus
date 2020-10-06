@@ -8,7 +8,7 @@ const initialState = {
   trips: [] as Array<TripType>,
   isFetching: false,
   currentPage: 1,
-  per_page: 12,
+  per_page: 12 as number | undefined,
   images: [] as Array<ImageType>,
   total_count: 1
 }
@@ -54,24 +54,22 @@ export const actions = {
   setCurrentPage: (currentPage: number) => ({
     type: 'SET_CURRENT_PAGE', currentPage
   } as const),
+  setPerPage: (perPage: number) => ({
+    type: 'SET_PER_PAGE', perPage
+  } as const),
   toggleIsFetching: (isFetching: boolean) => ({
     type: 'TOGGLE_IS_FETCHING', isFetching
   } as const),
 }
 
-export const requestTrips = (currentPage: number, pageSize: number): ThunkActionType =>
+export const requestTrips = (currentPage: number, pageSize: number | undefined = 12): ThunkActionType =>
   async (dispatch) => {
     dispatch(actions.toggleIsFetching(true))
     dispatch(actions.setCurrentPage(currentPage))
+    dispatch(actions.setPerPage(pageSize))
     let data = await TripsApi.getTrips(currentPage, pageSize)
     dispatch(actions.setTrips(data.data))
     dispatch(actions.setTotalCount(parseInt(data.headers['x-wp-total'])))
-    // let imagesArray = [] as Array<number>
-    // data.data.map((trip) => {
-    //   imagesArray.push(trip.featured_media)
-    // })
-    // let images = await TripsApi.getImages(imagesArray)
-    // dispatch(actions.setImages(images))
     dispatch(actions.toggleIsFetching(false))
   }
 

@@ -10,18 +10,13 @@ module.exports = {
           lessOptions: {
             modifyVars: {
               '@primary-color': '#003a8c',
-              '@gold': '#c6b473'
+              '@gold-base': '#857438'
             },
             javascriptEnabled: true,
           },
         },
       },
     },
-    {
-      plugin: CssModules,
-      options: {
 
-      },
-    },
   ],
 };

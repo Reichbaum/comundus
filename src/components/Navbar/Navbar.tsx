@@ -23,11 +23,10 @@ class Navbar extends Component {
   };
   render() {
     return (
-      <nav className="menuBar">
-        <div className="logo">
-          <a href=""><Logo width={200} height={40}/></a>
+      <nav className="menuBar container">
+        <div className="app__logo">
+          <a href="/"><Logo width={200} height={40}/></a>
         </div>
-
           <div className="leftMenu">
             <LeftMenu />
           </div>

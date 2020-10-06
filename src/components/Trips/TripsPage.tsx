@@ -1,16 +1,17 @@
 import {useDispatch, useSelector} from 'react-redux'
 import React, {useEffect} from 'react'
-import {getCurrentPage, getIsFetching, getPerPage, getTotalCount, getTrips} from '../../redux/selectors'
+import {getCurrentPage, getIsFetching, getPerPage, getTrips} from '../../redux/selectors'
 import {Trips} from './Trips'
-import {Divider, Pagination, Spin} from 'antd'
+import {Divider, Skeleton} from 'antd'
 import Title from 'antd/es/typography/Title'
-import {requestTrips } from '../../redux/tripsReducer'
+import {requestTrips} from '../../redux/tripsReducer'
+import Preloader from '../Preloader/Preloader'
+import TripPagination from './TripPagination'
 
 export const TripsPage = () => {
 
   const isFetching = useSelector(getIsFetching)
   const currentPageNumber = useSelector(getCurrentPage)
-  const totalCount = useSelector(getTotalCount)
   const perPage = useSelector(getPerPage)
   const trips = useSelector(getTrips)
   const dispatch = useDispatch()
@@ -22,29 +23,37 @@ export const TripsPage = () => {
     }
   }, [])
 
-  function onShowSizeChange(currentPageNumber: number, perPage: number) {
-    dispatch(requestTrips(currentPageNumber, perPage))
-  }
-
-  function onPageChange(numberPage: number) {
-    dispatch(requestTrips(numberPage, perPage))
-  }
-
   return <section>
     <Divider orientation="left">
-      <Title level={2}>Unsere Reisen</Title>
+      <Title level={1}>Unsere Reisen</Title>
     </Divider>
-    {isFetching && <Spin />}
-    <Pagination
-      onShowSizeChange={onShowSizeChange}
-      onChange={onPageChange}
-      total={totalCount}
-      showTotal={(total, range) => `${range[0]}-${range[1]} von ${total} Elemente`}
-      defaultPageSize={perPage}
-      defaultCurrent={currentPageNumber}
-      pageSizeOptions={["12", "24", "36"]}
-    />
+    <TripPagination hide={false}/>
+    {isFetching && <div><Preloader/>
+      <TripsSkeleton />
+    </div>}
     <Trips trips={trips}/>
+    <TripPagination hide={true}/>
   </section>
 
 }
+
+const TripsSkeleton = () => {
+  return <div className='trips__skeleton-wrapper'>
+    <div className='trips__skeleton-item'>
+      <Skeleton.Avatar active size={314} shape='square' />
+      <Skeleton active paragraph={false}/>
+    </div>
+    <div className='trips__skeleton-item'>
+      <Skeleton.Avatar active size={314} shape='square' />
+      <Skeleton active paragraph={false}/>
+    </div>
+    <div className='trips__skeleton-item'>
+      <Skeleton.Avatar active size={314} shape='square' />
+      <Skeleton active paragraph={false}/>
+    </div>
+  </div>
+}
+
+
+
+

@@ -1,20 +1,10 @@
+@import '~antd/dist/antd.less';
+
 .menuBar {
-  padding: 10px 20px;
-  border-bottom: solid 1px #e8e8e8;
-  box-shadow: 0 0 30px #f3f1f1;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #003162;
-}
-
-.logo {
-  width: 220px;
-  float: left;
-}
-
-.logo a {
-  display: inline-block;
 }
 
 .menuCon {
@@ -37,6 +27,7 @@
 
 .menuBar .ant-menu-horizontal {
   border-bottom: none;
+  background: transparent;
 }
 
 .menuBar .leftMenu {
@@ -47,7 +38,7 @@
   background-color: transparent;
 }
 
-.barsMenu {
+.menuBar .barsMenu {
   display: none;
   --box-shadow-color: rgba(255, 101, 47, 0.2);
   width: 40px;
@@ -61,8 +52,9 @@
   transition: all 0.5s ease-in-out;
 }
 
-.barsBtn,
-.barsBtn:after, .barsBtn:before {
+.menuBar .barsBtn,
+.menuBar .barsBtn:after,
+.menuBar .barsBtn:before {
   width: 26px;
   height: 2px;
   border-radius: 5px;
@@ -72,22 +64,32 @@
   left: 5px;
 }
 
-.barsBtn:after, .barsBtn:before {
+.menuBar .barsBtn:after,
+.menuBar .barsBtn:before {
   content: "";
   position: absolute;
 }
 
-.barsBtn:before {
+.menuBar .barsBtn:before {
   transform: translateY(-9px);
 
 }
 
-.barsBtn:after {
+.menuBar .barsBtn:after {
   transform: translateY(9px);
 }
 
 .ant-drawer-body {
   padding: 0;
+  background-color: @gold-3;
+}
+
+.ant-drawer-header {
+  background-color: #003162;
+}
+
+.ant-drawer-title {
+  color: white;
 }
 
 .ant-drawer-body .ant-menu-horizontal > .ant-menu-item, .ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu {
@@ -103,8 +105,8 @@
   border-bottom-color: transparent;
 }
 
-@media (max-width: 767px) {
-  .barsMenu {
+@media (max-width: @screen-md) {
+  .menuBar .barsMenu {
     display: flex;
   }
 

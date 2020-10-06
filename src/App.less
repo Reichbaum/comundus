@@ -1,19 +1,11 @@
 @import '~antd/dist/antd.less';
 //@import '~antd/dist/antd.dark.less';
 
-
-.logo {
-  float: left;
-}
-
 .container {
   width: 100%;
   margin: auto;
 }
 
-.app__content {
-  padding-top: 20px;
-}
 
 .make-container(@minWidth, @breakpoint) {
   @media (min-width: @minWidth) {
@@ -29,3 +21,59 @@
 .make-container(@screen-lg-min, @screen-lg);
 .make-container(@screen-xl-min, @screen-lg);
 .make-container(@screen-xxl-min, @screen-lg); // Optional
+
+
+.app__header.ant-layout-header {
+  height: auto;
+  padding: 0 15px;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 60px;
+  background-color: #002b54;
+  border-bottom: solid 1px #e8e8e8;
+}
+
+.app__logo {
+  width: 220px;
+  height: 100%;
+  & a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.app__pleloader {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.app__content {
+  padding: 20px 5px;
+  min-height: calc(100vh - 67px) !important;
+}
+
+.app__pagination {
+  &.hide {
+    display: none;
+  }
+}
+
+.app__divider {
+  &--light {
+    color: white;
+  }
+}
+
+.slider {
+  height: 160px;
+  color: #fff;
+  line-height: 160px;
+  text-align: center;
+  background: #364d79;
+}
+
+@media (max-width: @screen-sm) {
+  .app__content {
+    padding: 15px;
+  }
+}
