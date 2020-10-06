@@ -1,0 +1,126 @@
+.menuBar {
+  padding: 10px 20px;
+  border-bottom: solid 1px #e8e8e8;
+  box-shadow: 0 0 30px #f3f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003162;
+}
+
+.logo {
+  width: 220px;
+  float: left;
+}
+
+.logo a {
+  display: inline-block;
+}
+
+.menuCon {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.menuBar .ant-menu-item {
+  padding: 0px 5px;
+}
+
+.menuBar .ant-menu-submenu-title {
+  padding: 10px 20px;
+}
+
+.menuBar .ant-menu-item a, .menuBar .ant-menu-submenu-title a {
+  padding: 10px 15px;
+}
+
+.menuBar .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.menuBar .leftMenu {
+  align-self: center;
+}
+
+.menuBar .rightMenu .ant-menu {
+  background-color: transparent;
+}
+
+.barsMenu {
+  display: none;
+  --box-shadow-color: rgba(255, 101, 47, 0.2);
+  width: 40px;
+  height: 40px;
+  position: relative;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid #d9d9d9;
+  transition: all 0.5s ease-in-out;
+}
+
+.barsBtn,
+.barsBtn:after, .barsBtn:before {
+  width: 26px;
+  height: 2px;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  box-shadow: 0 2px 5px var(--box-shadow-color);
+  transition: all 0.5s ease-in-out;
+  left: 5px;
+}
+
+.barsBtn:after, .barsBtn:before {
+  content: "";
+  position: absolute;
+}
+
+.barsBtn:before {
+  transform: translateY(-9px);
+
+}
+
+.barsBtn:after {
+  transform: translateY(9px);
+}
+
+.ant-drawer-body {
+  padding: 0;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item, .ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu {
+  display: inline-block;
+  width: 100%;
+}
+
+.ant-drawer-body .ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover {
+  border-bottom-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .barsMenu {
+    display: flex;
+  }
+
+  .leftMenu, .rightMenu {
+    display: none;
+  }
+
+  .logo a {
+    margin-left: -20px;
+  }
+
+  .menuBar .ant-menu-item, .menuBar .ant-menu-submenu-title {
+    padding: 1px 20px;
+  }
+
+  .logo a {
+    padding: 10px 20px;
+  }
+}

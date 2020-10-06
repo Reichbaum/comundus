@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { ConfigProvider } from 'antd';
+import deDe from 'antd/es/locale/de_DE';
 
 ReactDOM.render(
-  <React.StrictMode>
+   <ConfigProvider locale={deDe}>
     <App />
-  </React.StrictMode>,
+    </ConfigProvider>,
   document.getElementById('root')
 );
 
