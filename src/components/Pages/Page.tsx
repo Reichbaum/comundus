@@ -19,20 +19,29 @@ const Page: FC<PageType> = ({postId}) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!post.id) {
+    if (postId !== post.id) {
       dispatch(requestPost(postId))
     }
-  }, [post])
+  }, [post, postId, dispatch])
 
-  const dividerClassName = cn(isFetching && 'hide')
+  const hideClassName = cn(isFetching && 'hide')
 
-  return <div>
-    {isFetching && <div><Preloader/><Skeleton active /></div>}
-    <Divider orientation="left" className={dividerClassName}>
+  return <>
+    {
+      isFetching && <div>
+      <Preloader/>
+      <Skeleton active />
+      <Skeleton active />
+      <Skeleton active />
+    </div>
+    }
+    <Divider orientation="left" className={hideClassName}>
       <Title level={1}>{post.title.rendered}</Title>
     </Divider>
-    <div>{parse(post.content.rendered)}</div>
-  </div>
+    <div className={hideClassName}>
+      {parse(post.content.rendered)}
+    </div>
+  </>
 }
 
 export default Page

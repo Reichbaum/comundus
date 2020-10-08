@@ -8,7 +8,7 @@ const initialState = {
   trips: [] as Array<TripType>,
   isFetching: false,
   currentPage: 1,
-  per_page: 12 as number | undefined,
+  per_page: 9 as number | undefined,
   images: [] as Array<ImageType>,
   total_count: 1
 }

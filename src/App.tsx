@@ -3,7 +3,7 @@ import './App.less'
 import {BackTop, Layout} from 'antd'
 import Navbar from './components/Navbar/Navbar'
 import {TripsPage} from './components/Trips/TripsPage'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {HashRouter, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import reduxStore from './redux/reduxStore'
 import HomePage from './components/Pages/HomePage'
@@ -11,9 +11,8 @@ import Page from './components/Pages/Page'
 
 const {Content, Header, Footer} = Layout
 
-
 const App = () => (
-  <BrowserRouter>
+  <HashRouter hashType='noslash'>
     <Provider store={reduxStore}>
       <Layout>
         <Header className='app__header'>
@@ -38,7 +37,7 @@ const App = () => (
         </Footer>
       </Layout>
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 )
 
 export default App

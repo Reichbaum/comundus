@@ -22,3 +22,8 @@ h1, h2 {
 .hide {
   display: none !important;
 }
+
+img {
+  max-width: 100%;
+}
+

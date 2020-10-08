@@ -21,7 +21,7 @@ export const TripsPage = () => {
     if (trips.length === 0) {
       dispatch(requestTrips(actualPage, perPage))
     }
-  }, [])
+  }, [currentPageNumber, perPage, trips, dispatch])
 
   return <section>
     <Divider orientation="left">

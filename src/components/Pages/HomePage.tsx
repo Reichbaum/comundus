@@ -1,5 +1,5 @@
 import React from 'react'
-import {Carousel, Skeleton} from 'antd'
+import {Carousel} from 'antd'
 
 const HomePage = () => {
 
@@ -18,7 +18,6 @@ const HomePage = () => {
         <h3 className='slider'>4</h3>
       </div>
     </Carousel>
-    <Skeleton avatar paragraph={{ rows: 4 }} />
   </div>
 }
 

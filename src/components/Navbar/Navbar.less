@@ -1,0 +1,121 @@
+@import '~antd/dist/antd.less';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+
+  .ant-menu-item {
+    padding: 0px 5px;
+  }
+
+  .ant-menu-submenu-title {
+    padding: 10px 20px;
+  }
+
+  .ant-menu-item a,
+  .ant-menu-submenu-title a {
+    padding: 10px 15px;
+  }
+
+  .ant-menu-horizontal {
+    border-bottom: none;
+    background: transparent;
+  }
+}
+
+.navbar__logo {
+  width: 220px;
+  height: 100%;
+
+  & a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.navbar__menu {
+  .ant-menu {
+    background-color: transparent;
+  }
+}
+
+.navbar__toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar__drawer {
+  max-width: 100%;
+}
+
+.ant-drawer-body {
+  padding: 0;
+  background-color: @gold-3;
+
+  .ant-menu-horizontal {
+    border-bottom: none;
+  }
+
+  .ant-menu-horizontal > .ant-menu-item,
+  .ant-menu-horizontal > .ant-menu-submenu {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .ant-menu-horizontal > .ant-menu-item:hover {
+    border-bottom-color: transparent;
+  }
+}
+
+.ant-drawer-header {
+  background-color: #003162;
+}
+
+.ant-drawer-title {
+  color: white;
+}
+
+@media (max-width: @screen-md) {
+
+  .navbar {
+    .ant-menu-item,
+    .ant-menu-submenu-title {
+      padding: 1px 20px;
+    }
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__menu {
+    display: none;
+  }
+
+  .navbar__logo a {
+    padding: 10px 20px;
+  }
+
+  .ant-drawer {
+    .ant-drawer-content {
+      height: auto;
+    }
+
+    .ant-drawer-close svg {
+      fill: #08c;
+    }
+
+  }
+}

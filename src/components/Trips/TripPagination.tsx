@@ -35,7 +35,7 @@ const TripPagination: FC<PagType> = ({hide}) => {
       showTotal={(total, range) => `${range[0]}-${range[1]} von ${total} Elemente`}
       defaultPageSize={perPage}
       defaultCurrent={currentPageNumber}
-      pageSizeOptions={['12', '24', '36']}
+      pageSizeOptions={['9', '12', '24', '36']}
       responsive
     />
   </div>

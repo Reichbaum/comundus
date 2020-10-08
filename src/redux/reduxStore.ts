@@ -1,6 +1,6 @@
 import {Action, applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunkMiddleware, {ThunkAction} from 'redux-thunk'
-import {tripsReducer } from './tripsReducer'
+import {tripsReducer} from './tripsReducer'
 import {postsReducer} from './postsReducer'
 
 const rootReducer = combineReducers({
