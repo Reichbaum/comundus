@@ -12,7 +12,7 @@ const Navbar = () => {
           <a href="/"><Logo width={200} height={40}/></a>
         </div>
         <div className="navbar__menu">
-          <NavbarMenu defaultOpenKeys={['service']}/>
+          <NavbarMenu/>
         </div>
         <NavbarDrawer/>
       </nav>

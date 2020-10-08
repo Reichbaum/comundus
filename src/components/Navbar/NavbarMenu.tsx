@@ -5,15 +5,13 @@ import SubMenu from 'antd/es/menu/SubMenu'
 
 type MenuType = {
   menuMode?: "horizontal" | "inline" | "vertical" | "vertical-left" | "vertical-right" | undefined
-  visible?: boolean
   visibleSubmenu?: boolean
-  defaultOpenKeys: Array<string>
+  defaultOpenKeys?: Array<string>
 }
 
 const NavbarMenu: FC<MenuType> = ({
                                     defaultOpenKeys,
-                                    visible,
-                                    visibleSubmenu,
+                                    visibleSubmenu = true,
                                     menuMode = 'horizontal'}) => {
 
   const [classSubmenu, setClassSubmenu] = useState('');
@@ -26,7 +24,7 @@ const NavbarMenu: FC<MenuType> = ({
   useEffect(() => {
     if (!visibleSubmenu) {
       setClassSubmenu('hide');
-    }
+    } else setClassSubmenu('');
   }, [visibleSubmenu]);
 
 

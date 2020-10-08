@@ -12,6 +12,7 @@ const NavbarDrawer = () => {
 
   const showDrawer = () => {
     setVisible(true)
+    setVisibleSubmenu(true)
   }
 
   const onClose = () => {
@@ -32,7 +33,6 @@ const NavbarDrawer = () => {
       >
         <NavbarMenu menuMode='inline'
                     defaultOpenKeys={["service"]}
-                    visible={visible}
                     visibleSubmenu={visibleSubmenu}
         />
       </Drawer>
