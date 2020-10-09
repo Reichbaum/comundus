@@ -8,9 +8,9 @@ const Navbar = () => {
   return (
     <div className="container">
       <nav className="navbar">
-        <div className="navbar__logo">
-          <a href="/"><Logo width={200} height={40}/></a>
-        </div>
+        <a className="navbar__logo" href="/">
+          <Logo width={200} height={40}/>
+        </a>
         <div className="navbar__menu">
           <NavbarMenu/>
         </div>

@@ -36,7 +36,7 @@ const NavbarMenu: FC<MenuType> = ({
         onClick={handleClick}
       >
        <Menu.Item key="home">
-         <Link to="/">Startseite</Link>
+         <a href="/">Startseite</a>
         </Menu.Item>
         <Menu.Item key="about">
           <Link to="/ueber_uns">Über uns</Link>

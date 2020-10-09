@@ -2,6 +2,7 @@ import {ThunkAction} from 'redux-thunk'
 import {Dispatch} from 'redux'
 import {AppStateType, InferActionsType} from './reduxStore'
 import {TripsApi} from '../api/trips-api'
+import {tripSearchValuesType} from '../components/Trips/TripsPage'
 
 
 const initialState = {
@@ -27,12 +28,7 @@ export const tripsReducer = (state = initialState, action: ActionsTypes) => {
         ...state,
         total_count: action.count
       }
-    case 'SET_IMAGES':
-      return {
-        ...state,
-        images: action.images
-      }
-    case 'TOGGLE_IS_FETCHING':
+   case 'TOGGLE_IS_FETCHING':
       return {
         ...state,
         isFetching: action.isFetching
@@ -50,7 +46,6 @@ export const tripsReducer = (state = initialState, action: ActionsTypes) => {
 export const actions = {
   setTrips: (trips: Array<TripType>) => ({type: 'SET_TRIPS', trips} as const),
   setTotalCount: (count: number) => ({type: 'SET_TOTAL_COUNT', count} as const),
-  setImages: (images: any) => ({type: 'SET_IMAGES', images} as const),
   setCurrentPage: (currentPage: number) => ({
     type: 'SET_CURRENT_PAGE', currentPage
   } as const),
@@ -59,15 +54,17 @@ export const actions = {
   } as const),
   toggleIsFetching: (isFetching: boolean) => ({
     type: 'TOGGLE_IS_FETCHING', isFetching
-  } as const),
+  } as const)
 }
 
-export const requestTrips = (currentPage: number, pageSize: number | undefined = 12): ThunkActionType =>
+export const requestTrips = (currentPage: number,
+                             pageSize: number | undefined = 12,
+                             search: tripSearchValuesType): ThunkActionType =>
   async (dispatch) => {
     dispatch(actions.toggleIsFetching(true))
     dispatch(actions.setCurrentPage(currentPage))
     dispatch(actions.setPerPage(pageSize))
-    let data = await TripsApi.getTrips(currentPage, pageSize)
+    let data = await TripsApi.getTrips(currentPage, pageSize, search)
     dispatch(actions.setTrips(data.data))
     dispatch(actions.setTotalCount(parseInt(data.headers['x-wp-total'])))
     dispatch(actions.toggleIsFetching(false))
@@ -93,7 +90,7 @@ export type TripType = {
     price: number
   }
   categories: Array<number>
-  destinations?: Array<number>
+  destinations: Array<number>
   guid?: any
   modified?: string
   modified_gmt?: string

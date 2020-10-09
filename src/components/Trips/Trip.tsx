@@ -15,7 +15,7 @@ const Trip: FC<TripType> = ({...props}) => {
       <a href={props.link} target='_blank' rel='noopener noreferrer'>
         <img className='trip__image' src={imageUrl} width={320} height={250} alt={props.title.rendered}/>
         <h3 className='trip__title'>{props.title.rendered}</h3>
-        <div className='trip__price-description'>ab<span>{props.meta.price} €</span>pro Person</div>
+        <div className='trip__price'>ab <span>{props.meta.price} €</span> pro Person</div>
       </a>
     </li>
   )
