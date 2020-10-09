@@ -43,6 +43,7 @@ const TripPagination: FC<TripPaginationType> = ({hide,
       current={currentPageNumber}
       pageSizeOptions={['9', '12', '24', '36']}
       responsive
+      disabled={isFetching}
     />
   </div>
 }

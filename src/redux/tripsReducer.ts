@@ -10,8 +10,8 @@ const initialState = {
   isFetching: false,
   currentPage: 1,
   per_page: 9 as number | undefined,
-  images: [] as Array<ImageType>,
-  total_count: 1
+  total_count: 1,
+  destinations: [] as Array<DestinationType>
 }
 
 type InitialStateType = typeof initialState
@@ -22,6 +22,11 @@ export const tripsReducer = (state = initialState, action: ActionsTypes) => {
       return {
         ...state,
         trips: action.trips
+      }
+    case 'SET_DESTINATIONS':
+      return {
+        ...state,
+        destinations: action.destinations
       }
     case 'SET_TOTAL_COUNT':
       return {
@@ -45,6 +50,7 @@ export const tripsReducer = (state = initialState, action: ActionsTypes) => {
 
 export const actions = {
   setTrips: (trips: Array<TripType>) => ({type: 'SET_TRIPS', trips} as const),
+  setDestinations: (destinations: Array<any>) => ({type: 'SET_DESTINATIONS', destinations} as const),
   setTotalCount: (count: number) => ({type: 'SET_TOTAL_COUNT', count} as const),
   setCurrentPage: (currentPage: number) => ({
     type: 'SET_CURRENT_PAGE', currentPage
@@ -70,6 +76,12 @@ export const requestTrips = (currentPage: number,
     dispatch(actions.toggleIsFetching(false))
   }
 
+export const requestDestinations = (): ThunkActionType =>
+  async (dispatch) => {
+    let data = await TripsApi.getDestinations()
+    dispatch(actions.setDestinations(data.data))
+  }
+
 type DispatchType = Dispatch<ActionsTypes>
 type ActionsTypes = InferActionsType<typeof actions>
 type ThunkActionType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
@@ -88,6 +100,8 @@ export type TripType = {
   featured_media: number
   meta: {
     price: number
+    dates: any
+    dates_multiple_trip: any
   }
   categories: Array<number>
   destinations: Array<number>
@@ -109,11 +123,10 @@ export type TripType = {
   }
 }
 
-export type ImageType = {
+export type DestinationType = {
   id: number
-  guid: {
-    rendered: string
-  }
+  count?: number
+  name: string
 }
 
 type embedMediaType = {
