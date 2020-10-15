@@ -14,7 +14,6 @@ import Title from 'antd/es/typography/Title'
 import {actions, DestinationType, requestDestinations, requestTrips} from '../../redux/tripsReducer'
 import Preloader from '../Preloader/Preloader'
 import TripPagination from './TripPagination'
-import Search from 'antd/es/input/Search'
 
 const {Option, OptGroup} = Select
 
@@ -31,6 +30,7 @@ const tripSearchValues = {
   search: '',
   destinations: [] as Array<number>
 }
+
 export type tripSearchValuesType = typeof tripSearchValues
 
 const TripsPage = () => {
@@ -87,7 +87,7 @@ const TripsPage = () => {
     )
   )
 
-  return <section>
+  return <section className='app__content container'>
     <Divider orientation="left">
       <Title level={1}>Unsere Reisen</Title>
     </Divider>

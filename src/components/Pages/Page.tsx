@@ -26,7 +26,7 @@ const Page: FC<PageType> = ({postId}) => {
 
   const hideClassName = cn(isFetching && 'hide')
 
-  return <>
+  return <div className='app__content container'>
     {
       isFetching && <div>
       <Preloader/>
@@ -41,22 +41,8 @@ const Page: FC<PageType> = ({postId}) => {
     <div className={hideClassName}>
       {parse(post.content.rendered)}
     </div>
-  </>
+  </div>
 }
 
 export default Page
-
-
-// Add nofollow and noopener - <WpApiContent content={post.content.rendered} />
-function WpApiContent(props: any): any {
-  return parse(props.content, {
-    replace: (domNode) => {
-      // @ts-ignore
-      if (domNode.name === 'a' && !domNode.attribs.rel) {
-        // @ts-ignore
-        return (<a href={domNode.attribs.href} rel='noopener nofollow'>{domNode.attribs.href}</a>)
-      }
-    }
-  })
-}
 

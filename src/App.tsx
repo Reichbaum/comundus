@@ -18,7 +18,7 @@ const App = () => (
         <Header className='app__header'>
           <Navbar/>
         </Header>
-        <Content className='app__content container'>
+        <Content>
           <Switch>
             <Route path='/reisen'
                    render={() => <TripsPage/>}/>

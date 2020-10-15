@@ -63,14 +63,15 @@ export const actions = {
   } as const)
 }
 
-export const requestTrips = (currentPage: number,
+export const requestTrips = (currentPage: number = 1,
                              pageSize: number | undefined = 12,
-                             search: tripSearchValuesType): ThunkActionType =>
+                             search: tripSearchValuesType | null,
+                             tag: number = 0): ThunkActionType =>
   async (dispatch) => {
     dispatch(actions.toggleIsFetching(true))
     dispatch(actions.setCurrentPage(currentPage))
     dispatch(actions.setPerPage(pageSize))
-    let data = await TripsApi.getTrips(currentPage, pageSize, search)
+    let data = await TripsApi.getTrips(currentPage, pageSize, search, tag)
     dispatch(actions.setTrips(data.data))
     dispatch(actions.setTotalCount(parseInt(data.headers['x-wp-total'])))
     dispatch(actions.toggleIsFetching(false))
