@@ -16,7 +16,7 @@ export const TripsApi = {
 
     let tagsParams = (tag === 0 ? '' : `&tags=${tag}`)
 
-    return instance.get(`ee_trips?_embed${searchParams}${tagsParams}${destinationsParams}`, {
+    return instance.get(`ee_trips?${searchParams}${tagsParams}${destinationsParams}`, {
       params: {page, per_page}
     }).then(res => res)
       .catch(err => {

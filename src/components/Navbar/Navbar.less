@@ -8,7 +8,7 @@
   width: 100%;
 
   .ant-menu-item {
-    padding: 0px 5px;
+    padding: 0 5px;
   }
 
   .ant-menu-submenu-title {
@@ -17,7 +17,7 @@
 
   .ant-menu-item:hover,
   .ant-menu-item-active,
-  .ant-menu:not(.ant-menu-inline)
+  .ant-menu:not(.ant-menu-inline),
   .ant-menu-submenu-open,
   .ant-menu-submenu-active,
   .ant-menu-submenu-title:hover {
@@ -33,6 +33,19 @@
     border-bottom: none;
     background: transparent;
   }
+
+  .navbar__toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s ease-in-out;
+  }
 }
 
 .navbar__logo {
@@ -45,54 +58,46 @@
 
 .navbar__menu {
   margin-left: auto;
+
   .ant-menu {
     background-color: transparent;
   }
 }
 
-.navbar__toggle {
-  display: none;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  transition: all 0.5s ease-in-out;
-}
 
 .navbar__drawer {
   max-width: 100%;
 }
 
-.ant-drawer-body {
-  padding: 0;
-  background-color: @gold-3;
+.ant-drawer {
+  .ant-drawer-header {
+    background-color: #003162;
+  }
 
-  .ant-menu-horizontal {
-    border-bottom: none;
+  .ant-drawer-title {
+    color: white;
+  }
 
-    .ant-menu-item,
-    .ant-menu-submenu {
-      display: inline-block;
-      width: 100%;
-    }
+  .ant-drawer-body {
+    padding: 0;
+    background-color: @gold-3;
 
-    .ant-menu-item:hover {
-      border-bottom-color: transparent;
+    .ant-menu-horizontal {
+      border-bottom: none;
+
+      .ant-menu-item,
+      .ant-menu-submenu {
+        display: inline-block;
+        width: 100%;
+      }
+
+      .ant-menu-item:hover {
+        border-bottom-color: transparent;
+      }
     }
   }
 }
 
-.ant-drawer-header {
-  background-color: #003162;
-}
-
-.ant-drawer-title {
-  color: white;
-}
 
 @media (max-width: @screen-md) {
 
@@ -100,6 +105,10 @@
     .ant-menu-item,
     .ant-menu-submenu-title {
       padding: 1px 20px;
+    }
+
+    .navbar__toggle {
+      display: flex;
     }
   }
 
@@ -111,13 +120,11 @@
     padding: 10px 0;
   }
 
-  .navbar__toggle {
-    display: flex;
-  }
 
   .ant-drawer {
+
     .ant-drawer-content {
-      height: auto;
+      height: auto !important;
     }
 
     .ant-drawer-close svg {

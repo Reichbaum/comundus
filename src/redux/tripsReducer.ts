@@ -99,6 +99,8 @@ export type TripType = {
   }
   content: string
   featured_media: number
+  featured_image_thumb: string
+  featured_image_slider: string
   meta: {
     price: number
     dates: any

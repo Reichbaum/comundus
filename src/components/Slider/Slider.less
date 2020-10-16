@@ -1,6 +1,7 @@
-.slider {
-  background-color: #818181;
+@import '~antd/lib/style/themes/default.less';
 
+.slider {
+  margin-bottom: 20px;
 }
 
 .slider__item {
@@ -8,6 +9,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .slider__image {
@@ -23,21 +25,23 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  flex-grow: 1;
+  width: 30%;
+  flex-shrink: 0;
   padding: 20px;
   margin: 20px 20px 20px -40px;
-  border: 3px solid #bcbcbc;
-  background-color: #fafafa;
+  border: 3px solid #a5a5a5;
+  background-color: rgb(250, 250, 250);
   z-index: 2;
 }
 
 .slider__title {
   font-size: 24px;
+  line-height: 1.4;
   z-index: 2;
 }
 
 .slider__price {
-  background-color: #bcbcbc;
+  background-color: #a5a5a5;
   color: white;
   padding: 5px 7px 5px 20px;
   margin-left: -20px;
@@ -55,9 +59,10 @@
 .slider__dates {
   overflow: auto;
   width: 100%;
+  max-height: 150px;
   margin-bottom: 20px;
   padding: 5px 15px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #a5a5a5;
 
   span {
     display: block;
@@ -66,5 +71,62 @@
 
 .slider__link {
   margin-top: auto;
+}
+
+.slider__skeleton {
+  .ant-skeleton-avatar {
+    height: 450px !important;
+  }
+}
+
+@media (max-width: @screen-md) {
+  .slider__skeleton {
+    .ant-skeleton-avatar {
+      width: 530px !important;
+      height: 450px !important;
+    }
+  }
+  .slider__image {
+    width: 100%;
+  }
+  .slider__content {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 250px;
+    height: auto;
+    padding: 10px;
+    margin: 0;
+    background-color: rgba(250, 250, 250, 0.85);
+  }
+  .slider__title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: @screen-sm) {
+  .slider__skeleton {
+    .ant-skeleton-avatar {
+      width: 230px !important;
+    }
+  }
+  .slider__content {
+    width: 250px;
+  }
+  .slider__title {
+    font-size: 18px;
+  }
+  .slider__dates {
+    max-height: 100px;
+    margin-bottom: 10px;
+  }
+  .slider__price {
+    padding: 3px 7px 3px 20px;
+    margin-left: -20px;
+    margin-bottom: 10px;
+    span {
+      font-size: 16px;
+    }
+  }
 }
 

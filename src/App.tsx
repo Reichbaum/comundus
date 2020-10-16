@@ -8,13 +8,14 @@ import reduxStore from './redux/reduxStore'
 import HomePage from './components/Pages/HomePage'
 import Page from './components/Pages/Page'
 import TripsPage from './components/Trips/TripsPage'
+import Footer from './components/Footer/Footer'
 
-const {Content, Header, Footer} = Layout
+const {Content, Header} = Layout
 
 const App = () => (
   <HashRouter hashType='noslash'>
     <Provider store={reduxStore}>
-      <Layout>
+      <Layout className='app'>
         <Header className='app__header'>
           <Navbar/>
         </Header>
@@ -32,9 +33,7 @@ const App = () => (
                    render={() => <HomePage/>}/>
           </Switch>
         </Content>
-        <Footer>
-          <BackTop/>
-        </Footer>
+        <Footer/>
       </Layout>
     </Provider>
   </HashRouter>
