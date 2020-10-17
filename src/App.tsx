@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.less'
-import {BackTop, Layout} from 'antd'
+import {Layout} from 'antd'
 import Navbar from './components/Navbar/Navbar'
 import {HashRouter, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux'

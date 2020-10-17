@@ -2,9 +2,10 @@ import noimage from '../../assets/img/noimage.svg'
 import {Button} from 'antd'
 import {GlobalOutlined} from '@ant-design/icons/lib'
 import React from 'react'
-import TripDates from '../Trips/TripDates'
+import TripDates, {TripsDatesType} from '../Trips/TripDates'
+import {TripType} from '../../redux/tripsReducer'
 
-const SliderItem = ({...props}) => {
+const SliderItem = React.memo(({...props}: TripType) => {
 
   let imageUrl = noimage
   if (props.featured_image_slider) {
@@ -26,7 +27,7 @@ const SliderItem = ({...props}) => {
       ]
   } else if (props.meta.dates_multiple_trip && props.meta.dates_multiple_trip[0].arrival !== '') {
     tripsDates = []
-    props.meta.dates_multiple_trip.map(
+    props.meta.dates_multiple_trip.forEach(
       (e: any) => {
         tripsDates.push({
           'arrival': e.arrival,
@@ -44,18 +45,19 @@ const SliderItem = ({...props}) => {
       <div className='slider__dates'>
         {
           tripsDates.map(
-            ({key, ...props}: any) => <TripDates key={props.id} {...props} />)
+            ({key, ...props}: TripsDatesType & any) => <TripDates key={props.arrival} {...props} />)
         }
       </div>
       <Button
         type="primary"
         icon={<GlobalOutlined/>}
         size="large"
-        className='slider__link'>
+        className='slider__link'
+        href={props.link}>
         Zur Reise
       </Button>
     </div>
   </div>
-}
+})
 
 export default SliderItem

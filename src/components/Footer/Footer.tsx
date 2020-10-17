@@ -2,11 +2,27 @@ import React from 'react'
 import './Footer.less'
 import {BackTop, Col, Divider, Row, Space} from 'antd'
 import {Link} from 'react-router-dom'
+import CookieConsent from 'react-cookie-consent'
 
 const Footer = () => {
+
   let year = new Date().getFullYear()
   return <div className='footer'>
     <BackTop/>
+
+    <CookieConsent
+      location="bottom"
+      buttonText="Ich stimme zu"
+      cookieName="ComundusReisenCookie"
+      style={{ background: "rgba(255, 255, 255, 0.8)", color: "black" }}
+      buttonStyle={{ color: "white", background: "#857438", fontSize: "13px", padding: "8px 10px" }}
+      expires={150}
+    >
+      Diese Internet-Seite nutzt Cookies, um Ihr Surf-Erlebnis individueller zu gestalten, und für Funktionen,
+      wie dem Vormerken von Reisen, und zur Auswertung von Aktivitäten und Verbesserung des Angebots.
+      Durch die weitere Nutzung der Website stimmen Sie dem zu. <Link to="/datenschutz">Mehr Informationen</Link>
+    </CookieConsent>
+
     <div className='footer__wrapper container'>
       <Row gutter={15} className="footer__row">
         <Col className="footer__col" sm={24} md={8}>
@@ -36,7 +52,7 @@ const Footer = () => {
       <Space>
         <p>2009-{year} © Comundus Reisen und Events GmbH</p>
         <Divider type="vertical" style={{borderLeftColor: '#535353'}}/>
-        <p>Made with <span>❤</span> by <a href="mailto:reichbaumjulia@gmail.com" target="_blank">Reichbaum</a></p>
+        <p>Made with <span>❤</span> by <a href="mailto:reichbaumjulia@gmail.com" target="_blank" rel="noopener noreferrer">Reichbaum</a></p>
       </Space>
       <Space>
        <Link to="/impressum">Impressum</Link>

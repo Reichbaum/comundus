@@ -1,6 +1,5 @@
 import React from 'react'
-import {GoogleMap, LoadScript, Marker, InfoWindow, InfoBox} from '@react-google-maps/api'
-import {Col} from 'antd'
+import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api'
 
 const containerStyle = {
   width: '100%',

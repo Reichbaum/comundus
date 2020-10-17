@@ -6,7 +6,7 @@ import {requestTrips, TripType} from '../../redux/tripsReducer'
 import '../Slider/Slider.less'
 import SliderItem from './SliderItem'
 
-const Slider = () => {
+const Slider = React.memo(() => {
 
   const trips = useSelector(getTrips)
   const isFetching = useSelector(getIsFetching)
@@ -15,7 +15,7 @@ const Slider = () => {
 
   useEffect(() => {
     dispatch(requestTrips(1, 10, null, 99))
-  }, [])
+  }, [dispatch])
 
   return <>
     {isFetching && <SliderSkeleton/>}
@@ -29,13 +29,12 @@ const Slider = () => {
     }
   </Carousel>
     </>
-}
+})
 
 export default Slider
 
-export const SliderSkeleton = () => {
+export const SliderSkeleton = React.memo(() => {
    return <div className='slider__skeleton'>
-      <Skeleton active avatar={{ size: 700, shape: 'square'}} paragraph={{ rows: 8 }}/>
-     <Skeleton.Button active size='large' shape='square' />
+      <Skeleton active avatar={{ size: 700, shape: 'square'}} paragraph={{ rows: 10 }}/>
     </div>
-}
+})

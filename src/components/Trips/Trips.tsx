@@ -6,7 +6,7 @@ import {getIsFetching} from '../../redux/selectors'
 import cn from 'classnames'
 
 
-export const Trips: FC<any & Array<TripType>> = ({trips}) => {
+const Trips: FC<any & Array<TripType>> = React.memo(({trips}) => {
 
   const isFetching = useSelector(getIsFetching)
   const tripListClassName = cn(isFetching && 'hide', 'app__pagination', 'trips__list')
@@ -19,4 +19,6 @@ export const Trips: FC<any & Array<TripType>> = ({trips}) => {
       }
     </ul>
   )
-}
+})
+
+export default Trips

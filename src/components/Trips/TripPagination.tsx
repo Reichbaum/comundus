@@ -13,7 +13,7 @@ type TripPaginationType = {
   totalCount: number
 }
 
-const TripPagination: FC<TripPaginationType> = ({hide,
+const TripPagination: FC<TripPaginationType> = React.memo(({hide,
                                                   searchValues,
                                                   currentPageNumber,
                                                   totalCount}) => {
@@ -46,6 +46,6 @@ const TripPagination: FC<TripPaginationType> = ({hide,
       disabled={isFetching}
     />
   </div>
-}
+})
 
 export default TripPagination

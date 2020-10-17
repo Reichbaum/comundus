@@ -7,7 +7,7 @@ import GoogleMapOffice from '../GoogleMap/GoogleMap'
 
 const {Title, Text, Link} = Typography
 
-const HomePage = () => {
+const HomePage = React.memo(() => {
 
   return <div>
     <div className='container'>
@@ -48,6 +48,6 @@ const HomePage = () => {
     </div>
     <GoogleMapOffice/>
   </div>
-}
+})
 
 export default HomePage

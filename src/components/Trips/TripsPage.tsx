@@ -8,23 +8,15 @@ import {
   getTotalCount,
   getTrips
 } from '../../redux/selectors'
-import {Trips} from './Trips'
-import {Button, Divider, Form, Input, Select, Skeleton, Space} from 'antd'
+import {Button, Divider, Form, Input, Select, Space} from 'antd'
 import Title from 'antd/es/typography/Title'
 import {actions, DestinationType, requestDestinations, requestTrips} from '../../redux/tripsReducer'
 import Preloader from '../Preloader/Preloader'
 import TripPagination from './TripPagination'
+import TripsSkeleton from './TripsSkeleton'
+import Trips from './Trips'
 
 const {Option, OptGroup} = Select
-
-const layout = {
-  labelCol: {span: 6},
-  wrapperCol: {span: 18}
-}
-
-const tailLayout = {
-  wrapperCol: {offset: 6, span: 18}
-}
 
 const tripSearchValues = {
   search: '',
@@ -33,7 +25,7 @@ const tripSearchValues = {
 
 export type tripSearchValuesType = typeof tripSearchValues
 
-const TripsPage = () => {
+const TripsPage = React.memo(() => {
 
   const isFetching = useSelector(getIsFetching)
   let currentPageNumber = useSelector(getCurrentPage)
@@ -91,8 +83,8 @@ const TripsPage = () => {
     <Divider orientation="left">
       <Title level={1}>Unsere Reisen</Title>
     </Divider>
-    <Form {...layout} form={form} name="trip-search" onFinish={onFinish}>
-      <Form.Item name="search" label="Suchbegriff/Stichwort">
+    <Form layout="vertical" form={form} name="trip-search" onFinish={onFinish}>
+      <Form.Item name="search" label="Suchbegriff/Stichwort" >
         <Input
           size="large"
           disabled={isFetching}
@@ -118,7 +110,7 @@ const TripsPage = () => {
 
       </Form.Item>
 
-      <Form.Item {...tailLayout}>
+      <Form.Item>
         <Space>
           <Button type="primary" htmlType="submit" disabled={isFetching}>
             Suchen
@@ -143,24 +135,6 @@ const TripsPage = () => {
                     totalCount={totalCount}/>
   </section>
 
-}
-
-const TripsSkeleton = () => {
-  return <div className='trips__skeleton-wrapper'>
-    <div className='trips__skeleton-item'>
-      <Skeleton.Avatar active size={314} shape='square'/>
-      <Skeleton active paragraph={false}/>
-    </div>
-    <div className='trips__skeleton-item'>
-      <Skeleton.Avatar active size={314} shape='square'/>
-      <Skeleton active paragraph={false}/>
-    </div>
-    <div className='trips__skeleton-item'>
-      <Skeleton.Avatar active size={314} shape='square'/>
-      <Skeleton active paragraph={false}/>
-    </div>
-  </div>
-}
-
+})
 
 export default TripsPage
