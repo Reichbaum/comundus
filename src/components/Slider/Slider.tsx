@@ -14,10 +14,10 @@ const Slider = React.memo(() => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(requestTrips(1, 10, null, 99))
+    dispatch(requestTrips(1, 15, null, 99))
   }, [dispatch])
 
-  return <>
+  return <div className='slider__wrapper container'>
     {isFetching && <SliderSkeleton/>}
     <Carousel
     draggable={true}
@@ -28,13 +28,13 @@ const Slider = React.memo(() => {
         ({key, ...props}: Array<TripType> & any) => <SliderItem key={props.id} {...props} />)
     }
   </Carousel>
-    </>
+    </div>
 })
 
 export default Slider
 
 export const SliderSkeleton = React.memo(() => {
    return <div className='slider__skeleton'>
-      <Skeleton active avatar={{ size: 700, shape: 'square'}} paragraph={{ rows: 10 }}/>
+      <Skeleton active avatar={{ size: 990, shape: 'square'}} title={false} paragraph={false}/>
     </div>
 })

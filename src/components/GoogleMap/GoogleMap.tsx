@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api'
 
 const containerStyle = {
@@ -23,31 +23,26 @@ const position = {
 const GoogleMapOffice = () => {
 
   return (
+
     <LoadScript
       googleMapsApiKey="AIzaSyAx4dGo5gSKn15lt1P3TJ15BP6vjqmxyfQ"
       language='de'
       region='DE'
-      mapIds={['1ca9ba1f60fa8cff']}
-    >
+      mapIds={['1ca9ba1f60fa8cff']}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={18}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <div className=''>Info window</div>
-        <Marker
-          position={position}
-        />
-        <InfoWindow
-          position={position}
-        >
+        zoom={18}>
+        { /* Child components, such as markers, info windows, etc. */}
+        <Marker position={position}/>
+        <InfoWindow position={position}>
           <div style={divStyle}>
             <h1>Comundus Reisen und Event GmbH</h1>
             <p>Scheurenstraße 26<br/>
               40215 Düsseldorf</p>
           </div>
         </InfoWindow>
+
       </GoogleMap>
     </LoadScript>
   )

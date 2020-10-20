@@ -9,7 +9,7 @@ import cn from 'classnames'
 const Trips: FC<any & Array<TripType>> = React.memo(({trips}) => {
 
   const isFetching = useSelector(getIsFetching)
-  const tripListClassName = cn(isFetching && 'hide', 'app__pagination', 'trips__list')
+  const tripListClassName = cn(isFetching && 'hide', 'app__pagination', 'trip__list')
 
   return (
     <ul className={tripListClassName}>

@@ -1,17 +1,18 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import Slider from '../Slider/Slider'
 import {Space, Typography, Row, Col, Divider} from 'antd'
 import bahnLogo from '../../assets/img/bahn-erlebnisreise-logo.png'
 import railEventLogo from '../../assets/img/railevent.png'
-import GoogleMapOffice from '../GoogleMap/GoogleMap'
+
+const GoogleMapOffice = React.lazy(() => import('../GoogleMap/GoogleMap'));
 
 const {Title, Text, Link} = Typography
 
 const HomePage = React.memo(() => {
 
   return <div>
-    <div className='container'>
       <Slider/>
+    <div className='container'>
       <Title>Gemeinsam die Welt entdecken</Title>
       <Space direction="vertical" size='large'>
         <Text strong>Sehr geehrte Damen und Herren,</Text>
@@ -46,7 +47,9 @@ const HomePage = React.memo(() => {
       </Space>
       <Divider/>
     </div>
+    <Suspense fallback={<div>Loading...</div>}>
     <GoogleMapOffice/>
+    </Suspense>
   </div>
 })
 

@@ -1,5 +1,4 @@
 const CracoLessPlugin = require('craco-less');
-const CssModules = require('babel-plugin-react-css-modules');
 
 module.exports = {
   plugins: [
