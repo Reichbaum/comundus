@@ -44,6 +44,9 @@ const NavbarMenu: FC<MenuType> = ({
         <Menu.Item key="trips">
           <Link to="/reisen">Unsere Reise</Link>
         </Menu.Item>
+        <Menu.Item key="trips">
+          <Link to="/kreuzfahrten">Kreuzfahrten</Link>
+        </Menu.Item>
         <SubMenu
           key="service"
           title={<span>Service</span>}

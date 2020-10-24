@@ -9,6 +9,7 @@ import HomePage from './components/Pages/HomePage'
 import Page from './components/Pages/Page'
 import TripsPage from './components/Trips/TripsPage'
 import Footer from './components/Footer/Footer'
+import CruisesPage from './components/Pages/CruisesPage'
 
 const {Content, Header} = Layout
 
@@ -29,6 +30,8 @@ const App = () => (
                    render={() => <Page postId={718}/>}/>
             <Route path='/datenschutz'
                    render={() => <Page postId={738}/>}/>
+            <Route path='/kreuzfahrten'
+                   render={() => <CruisesPage/>}/>
             <Route exact path='/'
                    render={() => <HomePage/>}/>
           </Switch>
