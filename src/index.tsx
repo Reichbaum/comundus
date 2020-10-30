@@ -1,19 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { ConfigProvider } from 'antd';
-import deDe from 'antd/es/locale/de_DE';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
+import { ConfigProvider } from 'antd'
+import deDe from 'antd/es/locale/de_DE'
 
 ReactDOM.render(
    <ConfigProvider locale={deDe}>
     <App />
     </ConfigProvider>,
   document.getElementById('root')
-);
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister()

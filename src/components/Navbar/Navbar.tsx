@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="container">
       <nav className="navbar">
         <a className="navbar__logo" href="/">
-          <Logo width={200} height={40}/>
+          <Logo width={219} height={45}/>
         </a>
         <div className="navbar__menu">
           <NavbarMenu/>

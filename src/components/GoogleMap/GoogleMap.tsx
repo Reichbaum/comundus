@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react'
+import React from 'react'
 import {GoogleMap, InfoWindow, LoadScript, Marker} from '@react-google-maps/api'
 
 const containerStyle = {
@@ -48,4 +48,4 @@ const GoogleMapOffice = () => {
   )
 }
 
-export default GoogleMapOffice
+export default React.memo(GoogleMapOffice)

@@ -27,7 +27,6 @@ const NavbarMenu: FC<MenuType> = ({
     } else setClassSubmenu('');
   }, [visibleSubmenu]);
 
-
   return (
       <Menu
         theme='dark'
@@ -44,17 +43,12 @@ const NavbarMenu: FC<MenuType> = ({
         <Menu.Item key="trips">
           <Link to="/reisen">Unsere Reise</Link>
         </Menu.Item>
-        <Menu.Item key="trips">
-          <Link to="/kreuzfahrten">Kreuzfahrten</Link>
-        </Menu.Item>
         <SubMenu
           key="service"
           title={<span>Service</span>}
           className={classSubmenu}>
-          <Menu.Item key="setting:1"><Link to="/kontakt">Kontakte</Link></Menu.Item>
-          <Menu.Item key="setting:2"><Link to="/impressum">Impressum</Link></Menu.Item>
-          <Menu.Item key="setting:3"><Link to="/datenschutz">Datenschutz</Link></Menu.Item>
-          <Menu.Item key="setting:4">Feedback</Menu.Item>
+          <Menu.Item key="setting:1"><Link to="/impressum">Impressum</Link></Menu.Item>
+          <Menu.Item key="setting:2"><Link to="/datenschutz">Datenschutz</Link></Menu.Item>
         </SubMenu>
       </Menu>
     )

@@ -8,7 +8,7 @@ import {
   getTotalCount,
   getTrips
 } from '../../redux/selectors'
-import {Button, Divider, Form, Input, Select, Space} from 'antd'
+import {Button, Form, Input, Select, Space} from 'antd'
 import Title from 'antd/es/typography/Title'
 import {actions, DestinationType, requestDestinations, requestTrips} from '../../redux/tripsReducer'
 import Preloader from '../Preloader/Preloader'
@@ -80,9 +80,7 @@ const TripsPage = React.memo(() => {
   )
 
   return <section className='app__content container'>
-    <Divider orientation="left">
-      <Title level={1}>Unsere Reisen</Title>
-    </Divider>
+    <Title level={1}>Unsere Reisen</Title>
     <Form layout="vertical" form={form} name="trip-search" onFinish={onFinish}>
       <Form.Item name="search" label="Suchbegriff/Stichwort" >
         <Input

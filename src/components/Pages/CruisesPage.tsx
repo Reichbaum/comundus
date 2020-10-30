@@ -12,8 +12,8 @@ const CruisesPage = () => {
 
   return <div className='container'>
     <iframe id="CPIFrame" onLoad={windowScroll} className='cruises'
-            src="https://www.cruiseportal.de/modul/vs2/welcome.html?ref=cruiseportal" height="2000" frameBorder="0"
-            style={IframeComponent}></iframe>
+            src="https://cpa.cruisec.net/?aid=204857" height="800" frameBorder="0"
+            style={IframeComponent} title='Kreuzfahten'></iframe>
   </div>
 }
 

@@ -49,7 +49,7 @@ const Footer = () => {
     </div>
     <div className='footer__powered'>
       <div className='footer__wrapper container'>
-      <Space>
+      <Space className='footer__copyright'>
         <p>2009-{year} © Comundus Reisen und Events GmbH</p>
         <Divider type="vertical" style={{borderLeftColor: '#535353'}}/>
         <p>Made with <span>❤</span> by <a href="mailto:reichbaumjulia@gmail.com" target="_blank" rel="noopener noreferrer">Reichbaum</a></p>
