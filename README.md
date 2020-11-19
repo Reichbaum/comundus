@@ -8,8 +8,4 @@ React, Redux,  Redux-thunk, Axios, Ant Design, Typescript, React-router-dom, Rea
 
 ### Demo
 
-Демо выложено на тестовом хостинге [https://com.reichbaum.ru](https://com.reichbaum.ru/).
-
-**Находится в разработке, пока без внимания к деталям!**
-
-
+Демо выложено на тестовом хостинге [https://com.reichbaum.ru](https://com.reichbaum.ru/)
